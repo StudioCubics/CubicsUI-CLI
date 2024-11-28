@@ -13,7 +13,7 @@
     "lint": "eslint src/**/*.ts",
     "changeset": "changeset",
     "version": "changeset version",
-    "publish": "changeset publish"
+    "release": "npm run build && changeset publish"
   },
   "keywords": [
     "cli",
