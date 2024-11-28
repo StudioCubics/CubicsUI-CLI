@@ -1,5 +1,11 @@
 # @cubicsui/cli
 
+## 1.1.1
+
+### Patch Changes
+
+- fixed wrong bin imports and package.json reference
+
 ## 1.1.0
 
 ### Minor Changes
