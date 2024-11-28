@@ -1,5 +1,11 @@
 # @cubicsui/cli
 
+## 1.1.3
+
+### Patch Changes
+
+- changed zod from devDependency to dependency
+
 ## 1.1.2
 
 ### Patch Changes
