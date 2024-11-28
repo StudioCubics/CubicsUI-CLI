@@ -1,24 +1,6 @@
 import * as fs from "fs-extra";
 import * as path from "path";
-
-const defaultConfigs = `{
-  // Your Cubics UI configuration
-  styleEngine: "css",
-  type: "typescript",
-  // Add more configuration options as needed
-}`;
-
-// Default configuration templates
-const defaultConfigTemplateTS = `
-import { defineConfig } from '@cubicsui/cli';
-
-export default defineConfig(${defaultConfigs});
-`;
-const defaultConfigTemplateJS = `
-import { defineConfig } from '@cubicsui/cli';
-
-export default defineConfig(${defaultConfigs});
-`;
+import { defaultConfigTemplateTS } from "./defaults";
 
 export default function buildConfigFile() {
   const configPath = path.resolve(process.cwd(), "cui.config.ts");

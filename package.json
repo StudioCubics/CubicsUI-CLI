@@ -1,18 +1,20 @@
 {
   "name": "@cubicsui/cli",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "CLI to build components in your project",
   "private": false,
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "bin": {
-    "@cubicsui/cli": "bin/index.js",
-    "cui": "bin/index.js"
+    "@cubicsui/cli": "bin/main.js",
+    "cui": "bin/main.js"
+  },
+  "exports": {
+    "./config": "./config/index.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -b",
     "lint": "eslint src/**/*.ts",
-    "changeset": "changeset",
-    "version": "changeset version",
+    "changeset": "changeset && changeset version",
     "release": "npm run build && changeset publish"
   },
   "keywords": [
@@ -32,6 +34,7 @@
     "@changesets/cli": "^2.27.10",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.10.1",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "zod": "^3.23.8"
   }
 }

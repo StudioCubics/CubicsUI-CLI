@@ -1,5 +1,5 @@
 import { program } from "commander";
-import buildConfigFile from "./functions/buildConfigFile";
+import buildConfigFile from "./config/buildConfigFile";
 
 program
   .command("init")
