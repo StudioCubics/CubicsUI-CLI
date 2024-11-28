@@ -1,5 +1,11 @@
 # @cubicsui/cli
 
+## 1.1.2
+
+### Patch Changes
+
+- fixed tsconfig
+
 ## 1.1.1
 
 ### Patch Changes
