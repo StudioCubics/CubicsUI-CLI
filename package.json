@@ -1,13 +1,12 @@
 {
-  "name": "@studiocubics/cli",
+  "name": "@cubicsui/cli",
   "version": "1.0.0",
   "description": "CLI to build components in your project",
   "private": false,
   "main": "dist/index.js",
   "bin": {
-    "@studiocubics/cli": "bin/index.js",
-    "scui": "bin/index.js",
-    "scli": "bin/index.js"
+    "@cubicsui/cli": "bin/index.js",
+    "cui": "bin/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -19,8 +18,8 @@
   "keywords": [
     "cli",
     "studiocubics",
-    "scui",
-    "scli",
+    "cubicsui",
+    "cui",
     "initialization"
   ],
   "author": "Ishfaq Ahmed",
