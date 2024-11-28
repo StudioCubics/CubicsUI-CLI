@@ -42,21 +42,27 @@ export function defineConfig(config: Partial<ConfigProps> = {}): ConfigProps {
   }
 }
 
-// Example usage
-
+/**
+ * Default configs formatted to be printed in the final config file
+ */
 export const defaultConfigsFormatted = `{
     styleEngine: ${defaultValues.styleEngine},
     type: ${defaultValues.type},
 }`;
 
-// Default configuration templates
+/**
+ * Default configuration template for Typescript
+ */
 export const defaultConfigTemplateTS = `
-  import { defineConfig } from '@cubicsui/cli';
+import { defineConfig } from '@cubicsui/cli';
 
-  export default defineConfig(${defaultConfigsFormatted});
-  `;
+export default defineConfig(${defaultConfigsFormatted});`;
+
+/**
+ * Default configuration template for Javascript
+ */
 export const defaultConfigTemplateJS = `
-  import { defineConfig } from '@cubicsui/cli';
-  
-  export default defineConfig(${defaultConfigsFormatted});
-  `;
+const { defineConfig } = require('@cubicsui/cli');
+
+module.exports = defineConfig(${defaultConfigsFormatted});
+`;

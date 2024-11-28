@@ -1,22 +1,43 @@
 import * as fs from "fs-extra";
 import * as path from "path";
-import { defaultConfigTemplateTS } from "./defaults";
+import { defaultConfigTemplateJS, defaultConfigTemplateTS } from "./defaults";
 
 export default function buildConfigFile() {
-  const configPath = path.resolve(process.cwd(), "cui.config.ts");
+  let possibleConfigs = [
+    {
+      name: "cui.config.js",
+      path: path.resolve(process.cwd(), "cui.config.js"),
+      content: defaultConfigTemplateJS,
+    },
+    {
+      name: "cui.config.ts",
+      path: path.resolve(process.cwd(), "cui.config.ts"),
+      content: defaultConfigTemplateTS,
+    },
+  ];
+
+  let finalConfig = possibleConfigs[0];
 
   // Check if config already exists
-  if (fs.existsSync(configPath)) {
-    console.error("cui.config.ts already exists in this directory.");
+  if (possibleConfigs.some((pc) => fs.existsSync(pc.path))) {
+    console.error("You have already initialised this project.");
+    console.error(
+      "Delete the config file (eg: cui.config.ts) before initialising again."
+    );
     process.exit(1);
   }
 
-  // Write the default configuration file
+  // Check if env is typescript
+  const tsconfig = path.resolve(process.cwd(), "tsconfig.json");
+  if (fs.existsSync(tsconfig)) {
+    finalConfig = possibleConfigs[1];
+  }
+
   try {
-    fs.writeFileSync(configPath, defaultConfigTemplateTS.trim());
-    console.log("✔ Created cui.config.ts in the project root.");
+    fs.writeFileSync(finalConfig.path, finalConfig.content.trim());
+    console.log(`✔ Created ${finalConfig.name} in the project root.`);
   } catch (error) {
-    console.error("✖ Failed to create sc.config.ts:", error);
+    console.error(`✖ Failed to create ${finalConfig.name}:`, error);
     process.exit(1);
   }
 }

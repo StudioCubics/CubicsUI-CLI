@@ -1,5 +1,11 @@
 # @cubicsui/cli
 
+## 1.2.0
+
+### Minor Changes
+
+- Added ability to create cui.config.js if tsconfig is not found
+
 ## 1.1.3
 
 ### Patch Changes
