@@ -4,7 +4,7 @@ import { z } from "zod";
 const ConfigSchema = z.object({
   library: z.enum(["react", "svelte"]),
   styleEngine: z.enum(["css", "scss", "tailwind"]),
-  type: z.enum(["typescript", "javascript"]),
+  mode: z.enum(["typescript", "javascript"]),
 });
 
 // Configuration type
@@ -14,7 +14,7 @@ export type ConfigProps = z.infer<typeof ConfigSchema>;
 export const defaultValues: ConfigProps = {
   library: "react",
   styleEngine: "css",
-  type: "typescript",
+  mode: "typescript",
 };
 
 /**
@@ -47,7 +47,7 @@ export function defineConfig(config: Partial<ConfigProps> = {}): ConfigProps {
  */
 export const defaultConfigsFormatted = `{
     styleEngine: ${defaultValues.styleEngine},
-    type: ${defaultValues.type},
+    type: ${defaultValues.mode},
 }`;
 
 /**

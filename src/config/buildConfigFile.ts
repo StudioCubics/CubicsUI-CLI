@@ -20,9 +20,14 @@ export default function buildConfigFile() {
 
   // Check if config already exists
   if (possibleConfigs.some((pc) => fs.existsSync(pc.path))) {
-    console.error("You have already initialised this project.");
+    console.log(
+      "This project seems to be already initialised for @cubicsui/cli."
+    );
+    console.log("If you want to install a new component");
+    console.log("Run:");
+    console.log("   npx cui create <component>");
     console.error(
-      "Delete the config file (eg: cui.config.ts) before initialising again."
+      "If you are trying to reinitialise this project then delete the config file (eg: cui.config.js) before initialising again."
     );
     process.exit(1);
   }
@@ -30,6 +35,7 @@ export default function buildConfigFile() {
   // Check if env is typescript
   const tsconfig = path.resolve(process.cwd(), "tsconfig.json");
   if (fs.existsSync(tsconfig)) {
+    console.log("⏳ tsconfig.json file detected, switching to typescript mode");
     finalConfig = possibleConfigs[1];
   }
 
